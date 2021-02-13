@@ -1,5 +1,6 @@
 
 import Color from './Color'
+
 const ColorSelector = () => {
     return(
         <div>
