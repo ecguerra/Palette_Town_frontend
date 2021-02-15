@@ -39,7 +39,7 @@ const Signup = (props) => {
                     console.log(response.data)
                     login(username, password).then(
                         () => {
-                            props.history.push('/home')
+                            props.history.push('/profile')
                         },
                         error => {
                             console.log(error)

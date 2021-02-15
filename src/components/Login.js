@@ -30,7 +30,7 @@ const Login = (props) => {
             login(username, password).then(
                 response=> {
                     console.log(response.data)
-                    props.history.push('/home')
+                    props.history.push('/profile')
                 },
                 (error) => {
                     console.log(error)

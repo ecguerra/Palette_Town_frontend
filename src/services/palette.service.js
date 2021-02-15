@@ -14,10 +14,9 @@ export const getUserPalettes = () => {
     return axios.get(API_URL, {withCredentials: true})
 }
 
-export const createPalette = (name, app_user) => {
+export const createPalette = (name) => {
     return axios.post(API_URL + 'new', {
-        name,
-        app_user
+        name
     },
         {withCredentials: true})
 }
