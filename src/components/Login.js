@@ -30,7 +30,9 @@ const Login = (props) => {
             login(username, password).then(
                 response=> {
                     console.log(response.data)
-                    props.history.push('/profile')
+                    if(response.data.status.code === 200) {
+                        props.history.push('/profile')
+                    }
                 },
                 (error) => {
                     console.log(error)
