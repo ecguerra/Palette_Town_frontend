@@ -46,6 +46,9 @@ const Profile = () => {
                                     <Link to={`/palettes/${palette.id}`}>
                                         <h4>{palette.name}</h4>
                                     </Link>
+                                    <Link to={`/palettes/edit/${palette.id}`}>
+                                        Edit
+                                    </Link>
                                     <p>Created by {palette.app_user.username}</p>
                                 </div>
                             ))}

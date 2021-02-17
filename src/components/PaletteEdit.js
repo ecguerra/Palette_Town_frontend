@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
-import { getOnePaletteName, updatePalette } from '../services/palette.service'
+import { getOnePaletteName, updatePalette, deletePalette } from '../services/palette.service'
 
 import '../css/Color.css'
 
@@ -26,6 +26,15 @@ const PaletteEdit = () => {
             console.log(error)
         })
 
+    }
+
+    const handleDelete = e => {
+        deletePalette(id).then(response =>{
+            console.log(response.data)
+            history.push('/profile')
+        }, error => {
+            console.log(error)
+        })
     }
 
     useEffect(()=> {
@@ -53,6 +62,7 @@ const PaletteEdit = () => {
                                 value='Update Palette'
                             />
                         </Form>
+                        <button onClick={handleDelete}>Delete</button>
                     </div>
             ) : (
                 <div>Loading...</div>
