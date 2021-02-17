@@ -8,6 +8,7 @@ import ColorSelector from './components/ColorSelector'
 import Profile from './components/Profile'
 import Palette from './components/Palette'
 import PaletteDetail from './components/PaletteDetail'
+import PaletteEdit from './components/PaletteEdit'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path='/profile' component={Profile} />
         <Route exact path='/palettes' component={Palette} />
         <Route exact path='/palettes/:id' component={PaletteDetail} />
+        <Route exact path='/palettes/edit/:id' component={PaletteEdit} />
       </Switch>
     </Layout>
   )

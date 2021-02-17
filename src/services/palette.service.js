@@ -10,6 +10,10 @@ export const getOnePalette = id => {
     return axios.get(API_URL + id)
 }
 
+export const getOnePaletteName = id => {
+    return axios.get(API_URL + 'name/' + id, {withCredentials: true})
+}
+
 export const getUserPalettes = () => {
     return axios.get(API_URL, {withCredentials: true})
 }
