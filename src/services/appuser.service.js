@@ -24,3 +24,8 @@ export const login = (username, password) => {
 export const logout = () => {
     return axios.get(API_URL + 'logout', {withCredentials: true})
 }
+
+// CURRENT USER
+export const getCurrentUser = () => {
+    return axios.get(API_URL + 'current', {withCredentials: true})
+}

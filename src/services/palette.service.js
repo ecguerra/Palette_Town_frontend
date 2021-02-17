@@ -34,7 +34,6 @@ export const updatePalette = (id, name) => {
 }
 
 // also needs better auth in backend
-// might need to change to method:DELETE like in P3
 export const deletePalette = id => {
     return axios.delete(API_URL + id, {withCredentials: true})
 }
