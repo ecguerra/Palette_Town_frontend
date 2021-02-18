@@ -15,10 +15,10 @@ export const createColor = (name, hex_name, rgb_name, hsl_name, cmyk_name) => {
         hsl_name,
         cmyk_name
     })
-    .then(created => {
-        console.log(created)
-    })
-    .catch(err => {
-        console.log(err)
-    })
+    // .then(created => {
+    //     console.log(created)
+    // })
+    // .catch(err => {
+    //     console.log(err)
+    // })
 }

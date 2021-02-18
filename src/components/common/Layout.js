@@ -8,8 +8,8 @@ const Layout = (props) => {
     
     useEffect(()=> {
         getCurrentUser().then(response => {
-            console.log(response.data.data)
-            setCurrentUser(response.data.data)
+            if(response.data.status.code === 200) setCurrentUser(response.data.data)
+            else setCurrentUser(undefined)
         }, error => {
             console.log(error)
         })
