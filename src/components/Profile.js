@@ -27,7 +27,6 @@ const Profile = () => {
     useEffect(()=>{
         getUserPalettes()
         .then(response => {
-            console.log(response.data.data)
             setUserPalettes(response.data.data)
         },
         error => {
@@ -45,9 +44,6 @@ const Profile = () => {
                                 <div key={palette.id}>
                                     <Link to={`/palettes/${palette.id}`}>
                                         <h4>{palette.name}</h4>
-                                    </Link>
-                                    <Link to={`/palettes/edit/${palette.id}`}>
-                                        Edit
                                     </Link>
                                     <p>Created by {palette.app_user.username}</p>
                                 </div>

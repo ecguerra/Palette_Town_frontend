@@ -10,9 +10,7 @@ const ColorSelector = () => {
     let [selectedPalette, setSelectedPalette] = useState('Philip')
 
     const onChangePalette = e => {
-        console.log(e.target.value)
         setSelectedPalette(e.target.value)
-        console.log(selectedPalette)
     }
 
     useEffect(()=> {
@@ -29,7 +27,6 @@ const ColorSelector = () => {
     useEffect(()=>{
         getUserPalettes().then(response=>{
             if(response.data.status.code === 200) {
-                console.log(response.data.data)
                 setPalettes(response.data.data)
             }
             else setPalettes(undefined)
@@ -42,38 +39,23 @@ const ColorSelector = () => {
         <>
                 {currentUser && palettes ? (
                     <div>
-                    {/* <form> */}
                         <select name='choosePalette' value={selectedPalette} onChange={onChangePalette}>
                                 <option>----Select a palette----</option>
                             {palettes.map(palette =>(
                                 <option value={palette.id} key={palette.id}>{palette.name}</option>
                             ))}
                         </select>
-                        {/* <input type='submit' value='Choose Palette'/> */}
-                    {/* </form> */}
                     </div>
                 ) : (
                     <></>
                 )}
             <div>
-                <Color 
-                    selectedPalette={selectedPalette}
-                />
-                <Color 
-                    selectedPalette={selectedPalette}
-                />
-                <Color 
-                    selectedPalette={selectedPalette}
-                />
-                <Color 
-                    selectedPalette={selectedPalette}
-                />
-                <Color 
-                    selectedPalette={selectedPalette}
-                />
-                <Color 
-                    selectedPalette={selectedPalette}
-                />
+                <Color selectedPalette={selectedPalette} />
+                <Color selectedPalette={selectedPalette} />
+                <Color selectedPalette={selectedPalette} />
+                <Color selectedPalette={selectedPalette} />
+                <Color selectedPalette={selectedPalette} />
+                <Color selectedPalette={selectedPalette} />
             </div>
         </>
     )
