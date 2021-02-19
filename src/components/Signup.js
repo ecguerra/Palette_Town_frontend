@@ -40,6 +40,7 @@ const Signup = (props) => {
                     login(username, password).then(
                         () => {
                             props.history.push('/profile')
+                            window.location.reload()
                         },
                         error => {
                             console.log(error)

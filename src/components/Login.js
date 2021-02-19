@@ -33,6 +33,7 @@ const Login = (props) => {
                     console.log(response.data)
                     if(response.data.status.code === 200) {
                         props.history.push('/profile')
+                        window.location.reload()
                     }
                 },
                 (error) => {

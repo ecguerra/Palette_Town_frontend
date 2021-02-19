@@ -18,6 +18,7 @@ const Layout = (props) => {
     const logOut = () => {
         logout()
         history.push('/')
+        window.location.reload()
     }
 
     return (

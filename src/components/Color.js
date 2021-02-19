@@ -4,15 +4,20 @@ import { createColorPalette } from '../services/colorpalette.service'
 
 import '../css/Color.css'
 
-const Color = ({selectedPalette}) => {
-    const [red, setRed] = useState(Math.floor(Math.random()*256))
-    const [green, setGreen] = useState(Math.floor(Math.random()*256))
-    const [blue, setBlue] = useState(Math.floor(Math.random()*256))
+const Color = ({selectedPalette, oRed, oGreen, oBlue}) => {
+    // const [red, setRed] = useState(Math.floor(Math.random()*256))
+    // const [green, setGreen] = useState(Math.floor(Math.random()*256))
+    // const [blue, setBlue] = useState(Math.floor(Math.random()*256))
+
+    const [red, setRed] = useState(oRed)
+    const [green, setGreen] = useState(oGreen)
+    const [blue, setBlue] = useState(oBlue)
+    
     const [style, setStyle] = useState()
     const [details, setDetails] = useState()
 
     const [palette, setPalette] = useState(selectedPalette)
-    
+
     const handleSave = e => {
         createColor(details.name,
             details.hex_name,
@@ -20,11 +25,9 @@ const Color = ({selectedPalette}) => {
             details.hsl_name,
             details.cmyk_name)
         .then(createdColor => {
-            console.log(createdColor.data.data.id)
-            console.log(palette)
             createColorPalette(createdColor.data.data.id, palette)
             .then(response => {
-                console.log(response.data)
+                console.log(response.data.status.message)
             }, error => {
                 console.log(error)
             })
@@ -33,6 +36,15 @@ const Color = ({selectedPalette}) => {
 
         })
     }
+
+    useEffect(()=>{
+        if (red === '') {
+            setRed((Math.floor(Math.random()*256)))
+            setGreen((Math.floor(Math.random()*256)))
+            setBlue((Math.floor(Math.random()*256)))
+        }
+    },[red, green, blue])
+
 
     useEffect(()=>{
         setPalette(selectedPalette)
@@ -54,7 +66,7 @@ const Color = ({selectedPalette}) => {
         error => {
             console.log(error)
         })
-    },[])
+    },[red,green,blue])
 
     return (
         <>

@@ -8,9 +8,19 @@ const ColorSelector = () => {
     const [currentUser, setCurrentUser] = useState(undefined)
     const [palettes, setPalettes] = useState(undefined)
     let [selectedPalette, setSelectedPalette] = useState('Philip')
+    const [red, setRed] = useState('')
+    const [green, setGreen] = useState('')
+    const [blue, setBlue] = useState('')
 
     const onChangePalette = e => {
         setSelectedPalette(e.target.value)
+    }
+
+    const submitRandom = e => {
+        setRed('')
+        setGreen('')
+        setBlue('')
+        window.location.reload()
     }
 
     useEffect(()=> {
@@ -50,12 +60,50 @@ const ColorSelector = () => {
                     <></>
                 )}
             <div>
-                <Color selectedPalette={selectedPalette} />
-                <Color selectedPalette={selectedPalette} />
-                <Color selectedPalette={selectedPalette} />
-                <Color selectedPalette={selectedPalette} />
-                <Color selectedPalette={selectedPalette} />
-                <Color selectedPalette={selectedPalette} />
+                <button onClick={submitRandom}>Get Random Colors</button>
+                <div>
+                    <Color 
+                        selectedPalette={selectedPalette}
+                        oRed={red}
+                        oGreen={green}
+                        oBlue={blue} 
+
+                    />
+                    <Color 
+                        selectedPalette={selectedPalette}
+                        oRed={red}
+                        oGreen={green}
+                        oBlue={blue} 
+
+                    />
+                    <Color 
+                        selectedPalette={selectedPalette}
+                        oRed={red}
+                        oGreen={green}
+                        oBlue={blue} 
+
+                    />
+                    <Color 
+                        selectedPalette={selectedPalette}
+                        oRed={red}
+                        oGreen={green}
+                        oBlue={blue} 
+
+                    />
+                    <Color 
+                        selectedPalette={selectedPalette}
+                        oRed={red}
+                        oGreen={green}
+                        oBlue={blue} 
+
+                    />
+                    <Color 
+                        selectedPalette={selectedPalette}
+                        oRed={red}
+                        oGreen={green}
+                        oBlue={blue} 
+                    />
+                </div>
             </div>
         </>
     )
