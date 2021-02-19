@@ -1,13 +1,21 @@
 import { useState, useEffect, useRef } from 'react'
-import { getUserPalettes, createPalette } from '../services/palette.service'
+import { getUserPalettes, getOnePalette, createPalette } from '../services/palette.service'
 import { Link } from 'react-router-dom'
 import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
 
+import '../css/Color.css'
+
 const Profile = () => {
     const form = useRef()
     const [userPalettes, setUserPalettes] = useState(undefined)
+    const [selectedPalette, setSelectedPalette] = useState(undefined)
+    const [palettePreview, setPalettePreview] = useState(undefined)
     const [newPalette, setNewPalette] = useState('')
+    
+    const onChangePalette = e => {
+        setSelectedPalette(e.target.value)
+    }
     
     const onChangeName = e => {
         const name = e.target.value
@@ -34,18 +42,39 @@ const Profile = () => {
         })
     },[])
 
+    useEffect(()=>{
+        getOnePalette(selectedPalette).then(response =>{
+            if(response.data.status.code === 200) {
+                setPalettePreview(response.data.data)
+            }
+            else setPalettePreview(undefined)
+        }, error => {
+            console.log(error)
+        })
+    },[selectedPalette])
+
     return(
         <>
             {userPalettes ? (
                 <div>
                     {userPalettes.length > 0 ? (
                         <>
+                            {palettePreview ? (
+                            <div>
+                                {palettePreview.map(details =>(
+                                    <div key={details.id} className='preview' style={{backgroundColor:`${details.color.rgb_name}`}}>
+                                    </div>
+                                ))}
+                            </div>
+                            ) : (
+                                <></>
+                            )}
                             {userPalettes.map(palette => (
                                 <div key={palette.id}>
                                     <Link to={`/palettes/${palette.id}`}>
                                         <h4>{palette.name}</h4>
                                     </Link>
-                                    <p>Created by {palette.app_user.username}</p>
+                                    <button value={palette.id} onClick={onChangePalette}>Preview</button>
                                 </div>
                             ))}
                         </>
