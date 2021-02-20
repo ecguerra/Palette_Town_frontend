@@ -6,6 +6,7 @@ import { getOnePaletteName, updatePalette, deletePalette, getOnePalette } from '
 import { deleteColorPalette } from '../services/colorpalette.service'
 
 import '../css/Color.css'
+import '../css/PaletteEdit.css'
 
 const PaletteEdit = () => {
     const [paletteName, setPaletteName] = useState(undefined)
@@ -70,28 +71,33 @@ const PaletteEdit = () => {
     return(
         <>
             {paletteName ? (
-                    <div>
-                        <Form ref={form} onSubmit={handleSubmit}>
-                            <Input 
-                                type='text'
-                                name='name'
-                                value={paletteName}
-                                onChange={onChangeName}
-                            />
-                            <Input 
-                                type='submit'
-                                value='Update Palette Name'
-                            />
-                        </Form>
-                        <button onClick={handleDelete}>Delete Palette</button>
+                    <div className='edit-container'>
+                        <div className='edit-form'>
+                            <Form ref={form} onSubmit={handleSubmit}>
+                                <Input 
+                                    type='text'
+                                    name='name'
+                                    value={paletteName}
+                                    onChange={onChangeName}
+                                />
+                                <Input 
+                                    type='submit'
+                                    className='button'
+                                    value='Update Name'
+                                />
+                            </Form>
+                            <button onClick={handleDelete}>Delete Palette</button>
+                        </div>
                         {fullPalette ? (
-                        <div>
+                        <div className='color-container'>
                             {fullPalette.map(palette => (
                                 <div key={palette.id} className='square' style={{backgroundColor: `${palette.color.rgb_name}`}}>
-                                    <p>{palette.color.hex_name}</p>
-                                    <p>{palette.color.rgb_name}</p>
-                                    <p>{palette.color.hsl_name}</p>
-                                    <p>{palette.color.cmyk_name}</p>
+                                    <div className='details'>
+                                        <p>{palette.color.hex_name}</p>
+                                        <p>{palette.color.rgb_name}</p>
+                                        <p>{palette.color.hsl_name}</p>
+                                        <p>{palette.color.cmyk_name}</p>
+                                    </div>
                                     <button onClick={()=>removeColor(palette.id)}>Remove from Palette</button>
                                 </div>
                             ))}

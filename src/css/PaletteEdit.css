@@ -1,0 +1,25 @@
+.edit-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+    height: 100vh;
+}
+
+form {
+    display: flex;
+}
+
+.edit-form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 2rem;
+}
+
+.color-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

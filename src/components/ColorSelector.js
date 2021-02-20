@@ -1,15 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { getCurrentUser } from '../services/appuser.service'
-import { getUserPalettes, getOnePalette } from '../services/palette.service'
+import { getUserPalettes, getOnePalette, createPalette } from '../services/palette.service'
+import Form from 'react-validation/build/form'
+import Input from 'react-validation/build/input'
 
 import Color from './Color'
 import '../css/Color.css'
+import '../css/ColorSelector.css'
 
 const ColorSelector = () => {
+    const form = useRef()
     const [currentUser, setCurrentUser] = useState(undefined)
     const [palettes, setPalettes] = useState(undefined)
     let [selectedPalette, setSelectedPalette] = useState(undefined)
     let [paletteDetails, setPaletteDetails] = useState(undefined)
+    const [newPalette, setNewPalette] = useState('')
 
     let [red, setRed] = useState('')
     let [green, setGreen] = useState('')
@@ -23,6 +28,22 @@ const ColorSelector = () => {
         setRed('')
         setGreen('')
         setBlue('')
+        window.location.reload()
+    }
+    
+    const onChangeName = e => {
+        const name = e.target.value
+        setNewPalette(name)
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        createPalette(newPalette).then(response => {
+            console.log(response.data)
+        }, error => {
+            console.log(error)
+        })
+
     }
 
     useEffect(()=> {
@@ -59,9 +80,10 @@ const ColorSelector = () => {
     },[selectedPalette])
 
     return(
-        <>
+        <div className='container'>
+        <div className='left-selector'>
             {currentUser && palettes ? (
-                <div>
+                <div className='select-container'>
                     <select name='choosePalette' value={selectedPalette} onChange={onChangePalette}>
                             <option>----Select a palette----</option>
                         {palettes.map(palette =>(
@@ -82,9 +104,22 @@ const ColorSelector = () => {
             ) : (
                 <></>
             )}
-            <div>
-                <button onClick={submitRandom}>Get Random Colors</button>
-                <div>
+            {currentUser && 
+                <Form ref={form} onSubmit={handleSubmit}>
+                    <Input 
+                        type='text' 
+                        name='name'
+                        value={newPalette} 
+                        placeholder='New palette name...'
+                        onChange={onChangeName} 
+                    />
+                    <Input type='submit' className='create button' value='Create a new palette'/>
+                </Form>
+            }
+            </div>
+            <div className='right-selector'>
+                <button className='random button' onClick={submitRandom}>Get Random Colors</button>
+                <div className='color-container'>
                     <Color 
                         selectedPalette={selectedPalette}
                         oRed={red}
@@ -123,7 +158,7 @@ const ColorSelector = () => {
                     />
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

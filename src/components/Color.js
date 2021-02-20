@@ -73,17 +73,15 @@ const Color = ({selectedPalette, oRed, oGreen, oBlue}) => {
             {style ? (
                 <div className='square' style={style}>
                     {details ? (
-                        <div className='details'>
-                            <p>{details.hex_name}</p>
-                            <p>{details.rgb_name}</p>
-                            <p>{details.hsl_name}</p>
-                            <p>{details.cmyk_name}</p>
-                            {/* { palette ? ( */}
-                                <button onClick={handleSave}>Save</button>
-                            {/* ) : (
-                                <></>
-                            )} */}
-                        </div>
+                        <>
+                            <div className='details'>
+                                <p>{details.hex_name}</p>
+                                <p>{details.rgb_name}</p>
+                                <p>{details.hsl_name}</p>
+                                <p>{details.cmyk_name}</p>
+                            </div>
+                            <button onClick={handleSave}>Save</button>
+                        </>
                     ) : (
                         <></>
                     )}

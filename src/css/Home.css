@@ -31,7 +31,7 @@ h1 {
     color: whitesmoke;
 }
 
-button {
+button, .button {
     border: none;
     background-color: #cb188a;
     width: 9rem;
@@ -43,7 +43,7 @@ button {
     color:whitesmoke;
 }
 
-button:hover {
+button:hover, .button:hover {
     background-color: #811a5b;
     color: #bdbdbd;
 }

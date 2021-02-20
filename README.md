@@ -1,25 +1,17 @@
 # Palette Town - frontend
 
-FRONTEND
-- [] Screenshot of landing page
-- [x] link to deployed frontend app
-- [x] link to backend repo
-- [x] wireframes
-- [x] user stories
-- [x] explanation of frontend tech used
-- [x] general approach (a couple paragraphs)
-- [x] installation instructions
-- [x] unsolved problems / major hurdles
+![Landing Page Screenshot](/landing_page.png)
+
 
 [Backend Repo](https://github.com/ecguerra/Project_4_backend)
 ## Frontend Deployment: TBD
 
-# Landing Page here
 
 ## Frontend Tech
 * React
 * Node
 * Axios
+
 
 ## API/Resources Used
 * [The Color Api](https://www.thecolorapi.com/)
