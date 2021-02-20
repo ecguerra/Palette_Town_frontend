@@ -66,7 +66,7 @@ const ColorSelector = () => {
         }, error => {
             console.log(error)
         })   
-    },[currentUser])
+    },[currentUser, newPalette])
 
     useEffect(()=>{
         getOnePalette(selectedPalette).then(response =>{

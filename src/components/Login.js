@@ -2,7 +2,8 @@ import { useState, useRef } from 'react'
 import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
 import CheckButton from 'react-validation/build/button'
-import FlashMessage from 'react-flash-message'
+
+import Message from './common/Message'
 
 import { login } from '../services/appuser.service'
 
@@ -11,7 +12,8 @@ const Login = (props) => {
     const checkBtn = useRef()
 
     const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')    
+    const [password, setPassword] = useState('')
+    const [message, setMessage] = useState(undefined)    
 
     const onChangeUsername = e => {
         const username = e.target.value
@@ -26,11 +28,13 @@ const Login = (props) => {
     const handleLogin = e => {
         e.preventDefault()
         form.current.validateAll()
+        setMessage(undefined)
 
         if(checkBtn.current.context._errors.length === 0) {
             login(username, password).then(
                 response=> {
-                    console.log(response.data)
+                    console.log(response.data.status.message)
+                    setMessage(response.data.status.message)
                     if(response.data.status.code === 200) {
                         props.history.push('/profile')
                         window.location.reload()
@@ -73,6 +77,9 @@ const Login = (props) => {
                     <button>Login</button>
                     <CheckButton style={{display: 'none'}} ref={checkBtn}/>
                 </Form>
+                {message &&
+                    <Message alert={message} />
+                }
             </div>
         </div>
     )

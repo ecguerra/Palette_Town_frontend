@@ -5,6 +5,8 @@ import Input from 'react-validation/build/input'
 import { getOnePaletteName, updatePalette, deletePalette, getOnePalette } from '../services/palette.service'
 import { deleteColorPalette } from '../services/colorpalette.service'
 
+import Message from './common/Message'
+
 import '../css/Color.css'
 import '../css/PaletteEdit.css'
 
@@ -19,6 +21,7 @@ const PaletteEdit = () => {
     const onChangeName = e => {
         const name = e.target.value
         setPaletteName(name)
+        setMessage(undefined)
     }
 
     const handleSubmit = e => {
@@ -33,8 +36,10 @@ const PaletteEdit = () => {
     }
 
     const handleDelete = e => {
+        setMessage(undefined)
         deletePalette(id).then(response =>{
             console.log(response.data.status.message)
+            setMessage(response.data.status.message)
             history.push('/profile')
         }, error => {
             console.log(error)
@@ -42,9 +47,11 @@ const PaletteEdit = () => {
     }
 
     const removeColor = id => {
+        setMessage(undefined)
         deleteColorPalette(id)
         .then(response => {
-            console.log(response.data.status.message)
+            // console.log(response.data.status.message)
+            setMessage(response.data.status.message)
         }, error => {
             console.log(error)
         })
@@ -72,6 +79,9 @@ const PaletteEdit = () => {
         <>
             {paletteName ? (
                     <div className='edit-container'>
+                    {message && 
+                        <Message alert={message} />
+                    }
                         <div className='edit-form'>
                             <Form ref={form} onSubmit={handleSubmit}>
                                 <Input 

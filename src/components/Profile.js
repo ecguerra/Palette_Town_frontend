@@ -15,6 +15,7 @@ const Profile = () => {
     }
 
     useEffect(()=>{
+        setPalettePreview(undefined)
         getUserPalettes()
         .then(response => {
             setUserPalettes(response.data.data)

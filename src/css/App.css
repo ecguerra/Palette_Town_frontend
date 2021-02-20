@@ -2,3 +2,11 @@ html, body {
     height: 100vh;
     background-color: #f4f0ec;
 }
+
+.alert {
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.8rem;
+    background-color: #98fbe5;
+    padding: 0.3rem 0.7rem;
+    width: 100%;
+}
