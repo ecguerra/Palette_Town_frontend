@@ -19,7 +19,6 @@ const App = () => {
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/color' component={ColorSelector} />
         <Route exact path='/profile' component={Profile} />
-        <Route exact path='/palettes' component={Palette} />
         <Route exact path='/palettes/:id' component={PaletteDetail} />
         <Route exact path='/palettes/edit/:id' component={PaletteEdit} />
       </Switch>
