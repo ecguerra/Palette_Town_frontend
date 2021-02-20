@@ -24,6 +24,9 @@ FRONTEND
 ## API/Resources Used
 * [The Color Api](https://www.thecolorapi.com/)
 * [Encycolorpedia](https://encycolorpedia.com/)
+* Landing Page photo by [Laura Ockel](https://unsplash.com/@viazavier)
+* Signup Page photo by [JJ Ying](https://unsplash.com/@jjying)
+* Login Page photo by [Luis Alfonso Orellana](https://unsplash.com/@alphonzs)
 
 
 ## Installation Instructions

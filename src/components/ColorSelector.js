@@ -23,7 +23,6 @@ const ColorSelector = () => {
         setRed('')
         setGreen('')
         setBlue('')
-        window.location.reload()
     }
 
     useEffect(()=> {

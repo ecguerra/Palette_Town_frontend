@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { logout, getCurrentUser } from '../../services/appuser.service'
 
+import '../../css/Layout.css'
+
 const Layout = (props) => {
     const history = useHistory()
     const [currentUser, setCurrentUser] = useState()
@@ -24,19 +26,24 @@ const Layout = (props) => {
     return (
         <>
             <nav>
-                <Link to='/home'>Home</Link>
-                <Link to='/color'>Colors</Link>
-            {currentUser ? (
-                <>
-                <Link to='/profile'>{currentUser.username}</Link>
-                <button onClick={logOut}>Log Out</button>
-                </>
-            ) : (
-                <>
-                <Link to='/login'>Log In</Link>
-                <Link to='/signup'>Sign Up</Link>
-                </>
-            )}
+                <div className='logo'>
+                    <Link to='/'>Palette Town</Link>
+                </div>
+                <div>
+                    <Link to='/home'>Home</Link>
+                    <Link to='/color'>Colors</Link>
+                {currentUser ? (
+                    <>
+                    <Link to='/profile'>{currentUser.username}</Link>
+                    <button className='logout' onClick={logOut}>Log Out</button>
+                    </>
+                ) : (
+                    <>
+                    <Link to='/login'>Log In</Link>
+                    <Link to='/signup'>Sign Up</Link>
+                    </>
+                )}
+                </div>
             </nav>
             <div>{props.children}</div>
         </>

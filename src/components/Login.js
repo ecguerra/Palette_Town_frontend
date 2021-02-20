@@ -44,33 +44,36 @@ const Login = (props) => {
     }
 
     return (
-        <div>
-            <Form onSubmit={handleLogin} ref={form}>
-                <div>
-                    <label htmlFor='username'>Username</label>
-                    <Input
-                        type='text'
-                        name='username'
-                        value={username}
-                        placeholder='Username'
-                        onChange={onChangeUsername}
-                    />
-                </div>
+        <div className='container'>
+            <div className='left login'></div>
+            <div className='right'>
+                <Form onSubmit={handleLogin} ref={form}>
+                    <div>
+                        <label htmlFor='username'>Username</label>
+                        <Input
+                            type='text'
+                            name='username'
+                            value={username}
+                            placeholder='Username'
+                            onChange={onChangeUsername}
+                        />
+                    </div>
 
-                <div>
-                    <label htmlFor='password'>Password</label>
-                    <Input
-                        type='password'
-                        name='password'
-                        value={password}
-                        placeholder='Password'
-                        onChange={onChangePassword}
-                    />
-                </div>
+                    <div>
+                        <label htmlFor='password'>Password</label>
+                        <Input
+                            type='password'
+                            name='password'
+                            value={password}
+                            placeholder='Password'
+                            onChange={onChangePassword}
+                        />
+                    </div>
 
-                <button>Login</button>
-                <CheckButton style={{display: 'none'}} ref={checkBtn}/>
-            </Form>
+                    <button>Login</button>
+                    <CheckButton style={{display: 'none'}} ref={checkBtn}/>
+                </Form>
+            </div>
         </div>
     )
 }

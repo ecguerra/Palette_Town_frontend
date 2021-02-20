@@ -6,9 +6,10 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import ColorSelector from './components/ColorSelector'
 import Profile from './components/Profile'
-import Palette from './components/Palette'
 import PaletteDetail from './components/PaletteDetail'
 import PaletteEdit from './components/PaletteEdit'
+
+import './css/App.css'
 
 const App = () => {
   return (

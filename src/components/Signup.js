@@ -6,6 +6,8 @@ import { isEmail } from 'validator'
 
 import { signup, login } from '../services/appuser.service'
 
+import '../css/Signup.css'
+
 const Signup = (props) => {
     const form = useRef()
     const checkBtn = useRef()
@@ -52,44 +54,47 @@ const Signup = (props) => {
     }
 
     return (
-        <div>
-            <Form onSubmit={handleSignup} ref={form}>
-                <div>
-                    <label htmlFor='username'>Username</label>
-                    <Input
-                        type='text'
-                        name='username'
-                        value={username}
-                        placeholder='Username'
-                        onChange={onChangeUsername}
-                    />
-                </div>
+        <div className='container'>
+            <div className='left signup'></div>
+            <div className='right'>
+                <Form onSubmit={handleSignup} ref={form}>
+                    <div>
+                        <label htmlFor='username'>Username</label>
+                        <Input
+                            type='text'
+                            name='username'
+                            value={username}
+                            placeholder='Username'
+                            onChange={onChangeUsername}
+                        />
+                    </div>
 
-                <div>
-                    <label htmlFor='email'>Email</label>
-                    <Input
-                        type='email'
-                        name='email'
-                        value={email}
-                        placeholder='Email'
-                        onChange={onChangeEmail}
-                    />
-                </div>
+                    <div>
+                        <label htmlFor='email'>Email</label>
+                        <Input
+                            type='email'
+                            name='email'
+                            value={email}
+                            placeholder='Email'
+                            onChange={onChangeEmail}
+                        />
+                    </div>
 
-                <div>
-                    <label htmlFor='password'>Password</label>
-                    <Input
-                        type='password'
-                        name='password'
-                        value={password}
-                        placeholder='Password'
-                        onChange={onChangePassword}
-                    />
-                </div>
+                    <div>
+                        <label htmlFor='password'>Password</label>
+                        <Input
+                            type='password'
+                            name='password'
+                            value={password}
+                            placeholder='Password'
+                            onChange={onChangePassword}
+                        />
+                    </div>
 
-                <button>Sign Up</button>
-                <CheckButton style={{display: 'none'}} ref={checkBtn}/>
-            </Form>
+                    <button>Sign Up</button>
+                    <CheckButton style={{display: 'none'}} ref={checkBtn}/>
+                </Form>
+            </div>
         </div>
     )
 }
