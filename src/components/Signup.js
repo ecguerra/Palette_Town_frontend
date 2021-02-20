@@ -41,7 +41,7 @@ const Signup = (props) => {
                     console.log(response.data)
                     login(username, password).then(
                         () => {
-                            props.history.push('/profile')
+                            props.history.push('/color')
                             window.location.reload()
                         },
                         error => {
@@ -57,7 +57,7 @@ const Signup = (props) => {
         <div className='container'>
             <div className='left signup'></div>
             <div className='right'>
-                <Form onSubmit={handleSignup} ref={form}>
+                <Form className='signup-form' onSubmit={handleSignup} ref={form}>
                     <div>
                         <label htmlFor='username'>Username</label>
                         <Input

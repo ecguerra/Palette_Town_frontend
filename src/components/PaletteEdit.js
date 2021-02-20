@@ -103,11 +103,11 @@ const PaletteEdit = () => {
                             ))}
                         </div>
                 ) : (
-                    <div>No palette details to display</div>
+                    <div className='placeholder'>No palette details to display</div>
                 )}
                     </div>
             ) : (
-                <div>Loading...</div>
+                <div className='placeholder'>Loading...</div>
             )}
         </>
     )

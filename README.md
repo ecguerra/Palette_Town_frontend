@@ -53,6 +53,8 @@ I love color and design and wanted to try to build a color-choosing site. It was
 ## Challenges
 Getting the auth credentials to pass from the backend to the frontend was by far the hardest challenge I faced with this app. I became well-acquainted with the many different ways to throw a CORS error. I eventually solved my auth issues with a lot of reading (and some very patient friends willing to help with debugging).
 
+An additional challenge has been trying refactor the window reloads to state. It's not a bug because all the components work, but there are a few places where it would be cleaner to just have a state refresh the component instead of a hard reload.
+
 
 ## Wireframes
 

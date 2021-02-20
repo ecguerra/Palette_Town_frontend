@@ -47,7 +47,7 @@ const Login = (props) => {
         <div className='container'>
             <div className='left login'></div>
             <div className='right'>
-                <Form onSubmit={handleLogin} ref={form}>
+                <Form className= 'signup-form' onSubmit={handleLogin} ref={form}>
                     <div>
                         <label htmlFor='username'>Username</label>
                         <Input

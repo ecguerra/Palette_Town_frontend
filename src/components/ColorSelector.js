@@ -77,7 +77,7 @@ const ColorSelector = () => {
         }, error => {
             console.log(error)
         })
-    },[selectedPalette])
+    },[selectedPalette, red, green, blue])
 
     return(
         <div className='container'>

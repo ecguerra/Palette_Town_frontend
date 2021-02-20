@@ -87,7 +87,7 @@ const Color = ({selectedPalette, oRed, oGreen, oBlue}) => {
                     )}
                 </div>
             ) : (
-                <div>
+                <div className='placeholder'>
                     Loading...
                 </div>
             )}

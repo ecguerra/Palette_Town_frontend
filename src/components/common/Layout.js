@@ -7,6 +7,7 @@ import '../../css/Layout.css'
 const Layout = (props) => {
     const history = useHistory()
     const [currentUser, setCurrentUser] = useState()
+    const [message, setMessage] = useState()
     
     useEffect(()=> {
         getCurrentUser().then(response => {
@@ -15,12 +16,16 @@ const Layout = (props) => {
         }, error => {
             console.log(error)
         })
-    }, [])
+    }, [message])
 
     const logOut = () => {
-        logout()
-        history.push('/')
-        window.location.reload()
+        logout().then(response => {
+            console.log(response.data)
+            setMessage(response.data.status.message)
+            history.push('/')
+        }, error => {
+            console.log(error)
+        })
     }
 
     return (

@@ -42,20 +42,22 @@ const Profile = () => {
                     <div className='left-profile'>
                         {palettePreview ? (
                         <div>
-                            {palettePreview.map(details =>(
-                                <div key={details.id} className='square' style={{backgroundColor:`${details.color.rgb_name}`}}>
-                                    <div className='details'>
-                                        <p>{details.color.hex_name}</p>
-                                        <p>{details.color.rgb_name}</p>
-                                        <p>{details.color.hsl_name}</p>
-                                        <p>{details.color.cmyk_name}</p>
+                            <div className='color-container'>
+                                {palettePreview.map(details =>(
+                                    <div key={details.id} className='square' style={{backgroundColor:`${details.color.rgb_name}`}}>
+                                        <div className='details'>
+                                            <p>{details.color.hex_name}</p>
+                                            <p>{details.color.rgb_name}</p>
+                                            <p>{details.color.hsl_name}</p>
+                                            <p>{details.color.cmyk_name}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                             <h2>{palettePreview[0].palette.name}</h2>
                         </div>
                         ) : (
-                            <></>
+                            <div className='placeholder'>Select one of your palettes!</div>
                         )}
                     </div>
                     <div className='right-profile'>
@@ -70,7 +72,7 @@ const Profile = () => {
                     </div>
                 </>
             ) : (
-                <div>No palettes to display</div>
+                <div className='placeholder'>No palettes to display</div>
             )}
         </div>
     )

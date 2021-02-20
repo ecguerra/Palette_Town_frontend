@@ -30,13 +30,19 @@
     align-items: center;
 }
 
+
 form {
     font-family: 'Heebo', sans-serif;
+}
+
+.signup-form {
+    flex-direction: column;
 }
 
 input {
     border: none;
     height: 2rem;
     width: 16rem;
+    padding: 0 0 0 0.3rem;
     margin: 0 0 1.5rem 0;
 }
