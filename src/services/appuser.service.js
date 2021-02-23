@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000/api/app_users/'
+// const API_URL = 'http://localhost:8000/api/app_users/'
+const API_URL = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_APPUSER : process.env.REACT_APP_PRO_URL_APPUSER
 
 // SIGN UP
 export const signup = (username, email, password) => {

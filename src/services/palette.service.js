@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000/api/palettes/'
+const API_URL = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_PALETTE : process.env.REACT_APP_PRO_URL_PALETTE
 
 export const getAllPalettes = () => {
     return axios.get(API_URL + 'all')
