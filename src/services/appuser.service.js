@@ -14,7 +14,7 @@ export const signup = (username, email, password) => {
 
 // LOG IN
 export const login = (username, password) => {
-    return axios.post(API_URL + 'login', {
+    return axios.post(`${API_URL}/login`, {
         username, password
     },
         {withCredentials: true}
