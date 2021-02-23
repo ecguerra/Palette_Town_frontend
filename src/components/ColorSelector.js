@@ -28,7 +28,7 @@ const ColorSelector = () => {
         setRed('')
         setGreen('')
         setBlue('')
-        window.location.reload()
+        // window.location.reload()
     }
     
     const onChangeName = e => {

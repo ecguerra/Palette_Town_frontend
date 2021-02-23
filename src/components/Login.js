@@ -37,7 +37,7 @@ const Login = (props) => {
                     setMessage(response.data.status.message)
                     if(response.data.status.code === 200) {
                         props.history.push('/profile')
-                        window.location.reload()
+                        // window.location.reload()
                     }
                 },
                 (error) => {

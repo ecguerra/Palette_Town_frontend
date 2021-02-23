@@ -42,7 +42,7 @@ const Signup = (props) => {
                     login(username, password).then(
                         () => {
                             props.history.push('/color')
-                            window.location.reload()
+                            // window.location.reload()
                         },
                         error => {
                             console.log(error)

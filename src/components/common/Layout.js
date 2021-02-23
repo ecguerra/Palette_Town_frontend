@@ -37,7 +37,7 @@ const Layout = (props) => {
             setUserNav(false)
             setTimeout(()=>{
                 history.push('/')
-                window.location.reload()
+                // window.location.reload()
             },1500)
         }, error => {
             console.log(error)
