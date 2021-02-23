@@ -1,10 +1,11 @@
 # Palette Town - frontend
 
+## [Palette Town](https://palettetown.netlify.app)
+
+## [Backend Repo](https://github.com/ecguerra/Project_4_backend)
+
 ![Landing Page Screenshot](/landing_page.png)
 
-
-[Backend Repo](https://github.com/ecguerra/Project_4_backend)
-## Frontend Deployment: TBD
 
 
 ## Frontend Tech
@@ -89,5 +90,6 @@ Big shoutout to the "Room 5 crew" (Monica, Dan, Taylor, Camille, Salima, Gabe, L
 And of course, thank you to Andy for making sure I ate regularly and for putting up with a grouchy code gremlin for 6 months.
 
 
-[Backend Repo](https://github.com/ecguerra/Project_4_backend)
-## Frontend Deployment: TBD
+## [Palette Town](https://palettetown.netlify.app)
+
+## [Backend Repo](https://github.com/ecguerra/Project_4_backend)
