@@ -5,7 +5,7 @@ const API_URL = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_D
 
 // SIGN UP
 export const signup = (username, email, password) => {
-    return axios.post(API_URL + 'signup', {
+    return axios.post(`${API_URL}signup`, {
         username, email, password
     },
         {withCredentials: true}
@@ -14,7 +14,7 @@ export const signup = (username, email, password) => {
 
 // LOG IN
 export const login = (username, password) => {
-    return axios.post(`${API_URL}/login`, {
+    return axios.post(`${API_URL}login`, {
         username, password
     },
         {withCredentials: true}
@@ -23,10 +23,10 @@ export const login = (username, password) => {
 
 // LOG OUT
 export const logout = () => {
-    return axios.get(API_URL + 'logout', {withCredentials: true})
+    return axios.get(`${API_URL}logout`, {withCredentials: true})
 }
 
 // CURRENT USER
 export const getCurrentUser = () => {
-    return axios.get(API_URL + 'current', {withCredentials: true})
+    return axios.get(`${API_URL}current`, {withCredentials: true})
 }
