@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const COLOR_API =  'http://www.thecolorapi.com/id?'
+const COLOR_API =  'https://www.thecolorapi.com/id?'
 // const API_URL = 'http://localhost:8000/api/colors/'
 const API_URL = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_COLOR : process.env.REACT_APP_PRO_URL_COLOR
 
