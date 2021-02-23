@@ -9,5 +9,5 @@ export const createColorPalette = (color, palette) => {
 }
 
 export const deleteColorPalette = id => {
-    return axios.delete(API_URL + id, {withCredentials: true})
+    return axios.delete(`${API_URL}${id}`, {withCredentials: true})
 }
