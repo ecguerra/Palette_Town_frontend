@@ -4,31 +4,39 @@ import { getUserPalettes, getOnePalette, createPalette } from '../services/palet
 import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
 
+import { nanoid } from 'nanoid'
+
 import Color from './Color'
+import Refresh from './Refresh'
 import '../css/Color.css'
 import '../css/ColorSelector.css'
 
 const ColorSelector = () => {
     const form = useRef()
+    // let update = useRef(true)
+
     const [currentUser, setCurrentUser] = useState(undefined)
     const [palettes, setPalettes] = useState(undefined)
     let [selectedPalette, setSelectedPalette] = useState(undefined)
     let [paletteDetails, setPaletteDetails] = useState(undefined)
     const [newPalette, setNewPalette] = useState('')
 
-    let [red, setRed] = useState('')
-    let [green, setGreen] = useState('')
-    let [blue, setBlue] = useState('')
+    let [red, setRed] = useState(undefined)
+    let [green, setGreen] = useState(undefined)
+    let [blue, setBlue] = useState(undefined)
+    
+    let [update, setUpdate] = useState(true)
+
 
     const onChangePalette = e => {
         setSelectedPalette(e.target.value)
     }
 
-    const submitRandom = e => {
-        setRed('')
-        setGreen('')
-        setBlue('')
-        // window.location.reload()
+    const submitRandom = () => {
+        setRed(Math.floor(Math.random()*256))
+        setGreen(Math.floor(Math.random()*256))
+        setBlue(Math.floor(Math.random()*256))
+        // setUpdate(!update)
     }
     
     const onChangeName = e => {
@@ -124,13 +132,13 @@ const ColorSelector = () => {
                         selectedPalette={selectedPalette}
                         oRed={red}
                         oGreen={green}
-                        oBlue={blue} 
+                        oBlue={blue}
                     />
                     <Color 
                         selectedPalette={selectedPalette}
                         oRed={red}
                         oGreen={green}
-                        oBlue={blue} 
+                        oBlue={blue}
                     />
                     <Color 
                         selectedPalette={selectedPalette}

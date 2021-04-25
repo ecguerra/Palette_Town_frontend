@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getColorRGB, createColor } from '../services/color.service'
 import { createColorPalette } from '../services/colorpalette.service'
+
+import { nanoid } from 'nanoid'
 
 import '../css/Color.css'
 
@@ -8,6 +10,9 @@ const Color = ({selectedPalette, oRed, oGreen, oBlue}) => {
     // const [red, setRed] = useState(Math.floor(Math.random()*256))
     // const [green, setGreen] = useState(Math.floor(Math.random()*256))
     // const [blue, setBlue] = useState(Math.floor(Math.random()*256))
+
+    const colorId = nanoid()
+    const id = useState(colorId)
 
     const [red, setRed] = useState(oRed)
     const [green, setGreen] = useState(oGreen)
@@ -37,14 +42,13 @@ const Color = ({selectedPalette, oRed, oGreen, oBlue}) => {
         })
     }
 
-    useEffect(()=>{
-        if (red === '') {
-            setRed((Math.floor(Math.random()*256)))
-            setGreen((Math.floor(Math.random()*256)))
-            setBlue((Math.floor(Math.random()*256)))
-        }
-    },[red, green, blue])
+    const newColors = () => {
+        setRed((Math.floor(Math.random()*256)))
+        setGreen((Math.floor(Math.random()*256)))
+        setBlue((Math.floor(Math.random()*256)))
+    }
 
+    useEffect(newColors, [oRed])
 
     useEffect(()=>{
         setPalette(selectedPalette)
@@ -66,12 +70,12 @@ const Color = ({selectedPalette, oRed, oGreen, oBlue}) => {
         error => {
             console.log(error)
         })
-    },[red,green,blue])
+    },[red, green, blue])
 
     return (
         <>
             {style ? (
-                <div className='square' style={style}>
+                <div className='square' style={style} key={id}>
                     {details ? (
                         <>
                             <div className='details'>
