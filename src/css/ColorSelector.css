@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 .left-selector {
     width: 50%;
     height: 100%;
@@ -36,8 +40,20 @@ select {
     flex-wrap: wrap;
 }
 
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
 .random {
     height: 4rem;
     width: 10rem;
     margin: 0 0 2rem 0;
+}
+
+.color-form {
+    display: flex;
+    flex-direction: column;
+    display: none;
 }

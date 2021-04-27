@@ -20,6 +20,12 @@ const ColorSelector = () => {
     // let [red, setRed] = useState(undefined)
     // let [green, setGreen] = useState(undefined)
     // let [blue, setBlue] = useState(undefined)
+
+    let [startingColor, setStartingColor] = useState ({
+        red: 107,
+        green: 77,
+        blue: 119
+    })
     
     let [red, setRed] = useState({
         one: Math.floor(Math.random()*256),
@@ -105,6 +111,51 @@ const ColorSelector = () => {
 
     }
 
+    const onChangeColor = e => {
+        const changeColor = e.target.value
+        setStartingColor({[e.target.name]: changeColor})
+    }
+
+    const submitChangeColor = e => {
+        e.preventDefault()
+        setStartingColor({
+            red: {red},
+            green: {green},
+            blue: {blue}
+        })
+    }
+
+    const submitComp = () => {
+        setRed({
+            one: 255 - startingColor.red,
+            two: 260 - startingColor.red,
+            three: 263 - startingColor.red,
+            four: 267 - startingColor.red,
+            five: 269 - startingColor.red,
+            six: 271 - startingColor.red
+        })
+
+        setGreen({
+            one: 255 - startingColor.green,
+            two: 247 - startingColor.green,
+            three: 239 - startingColor.green,
+            four: 231 - startingColor.green,
+            five: 222 - startingColor.green,
+            six: 214 - startingColor.green
+        })
+
+        setBlue({
+            one: 255 - startingColor.blue,
+            two: 264 - startingColor.blue,
+            three: 272 - startingColor.blue,
+            four: 281 - startingColor.blue,
+            five: 289 - startingColor.blue,
+            six: 297 - startingColor.blue
+        })
+
+        setRandom(false)
+    }
+
     useEffect(()=> {
         getCurrentUser().then(response => {
             if(response.data.status.code === 200) {
@@ -177,7 +228,50 @@ const ColorSelector = () => {
             }
             </div>
             <div className='right-selector'>
-                <button className='random button' onClick={submitRandom}>Get Random Colors</button>
+                <div className='button-container'>
+                    <button className='random button hidden' onClick={submitRandom}>Get Random Colors</button>
+                    <button className='random button'>Start with a Color</button>
+                    <button className='random button' onClick={submitComp}>Complimentary Colors</button>
+                    <div>
+                        <Form ref={form} onSubmit={submitChangeColor} className='color-form'>
+                            <div>
+                                <label for='red'>Red: </label>
+                                <Input 
+                                    type='text'
+                                    name='red'
+                                    value={startingColor.red}
+                                    onChange={onChangeColor}
+                                />
+                            </div>
+                            <div>
+                                <label for='green'>Green: </label>
+                                <Input 
+                                    type='text'
+                                    name='green'
+                                    value={startingColor.green}
+                                    onChange={onChangeColor}
+                                />
+                            </div>
+                            <div>
+                                <label for='blue'>Blue: </label>
+                                <Input 
+                                    type='text'
+                                    name='blue'
+                                    value={startingColor.blue}
+                                    onChange={onChangeColor}
+                                />
+                            </div>
+                        </Form>
+
+                        <Color 
+                            selectedPalette={selectedPalette}
+                            oRed={startingColor.red}
+                            oGreen={startingColor.green}
+                            oBlue={startingColor.blue}
+                            oRandom = {false}
+                        />
+                    </div>
+                </div>
                 <div className='color-container'>
                     <Color 
                         selectedPalette={selectedPalette}
