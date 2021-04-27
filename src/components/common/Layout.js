@@ -25,10 +25,10 @@ const Layout = (props) => {
     }, [])
 
 
-    useEffect(()=>{
-        if(currentUser) setUserNav(true)
-        else setUserNav(false)
-    },[currentUser, message])
+    // useEffect(()=>{
+    //     if(currentUser) setUserNav(true)
+    //     else setUserNav(false)
+    // },[currentUser, message])
 
     const logOut = () => {
         logout().then(response => {
@@ -37,7 +37,7 @@ const Layout = (props) => {
             setUserNav(false)
             setTimeout(()=>{
                 history.push('/')
-                // window.location.reload()
+                window.location.reload()
             },1500)
         }, error => {
             console.log(error)
@@ -53,7 +53,7 @@ const Layout = (props) => {
                 <div>
                     <Link to='/home'>Home</Link>
                     <Link to='/color'>Colors</Link>
-                    {userNav ? (
+                    {currentUser ? (
                         <>
                             <Link to='/profile'>{currentUser.username}</Link>
                             <button className='logout' onClick={logOut}>Log Out</button>

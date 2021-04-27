@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { getColorRGB, createColor } from '../services/color.service'
 import { createColorPalette } from '../services/colorpalette.service'
 
@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid'
 
 import '../css/Color.css'
 
-const Color = ({selectedPalette, oRed, oGreen, oBlue}) => {
+const Color = ({selectedPalette, oRed, oGreen, oBlue, oRandom}) => {
     // const [red, setRed] = useState(Math.floor(Math.random()*256))
     // const [green, setGreen] = useState(Math.floor(Math.random()*256))
     // const [blue, setBlue] = useState(Math.floor(Math.random()*256))
@@ -43,12 +43,19 @@ const Color = ({selectedPalette, oRed, oGreen, oBlue}) => {
     }
 
     const newColors = () => {
-        setRed((Math.floor(Math.random()*256)))
-        setGreen((Math.floor(Math.random()*256)))
-        setBlue((Math.floor(Math.random()*256)))
+        if(oRandom === true) {
+            setRed((Math.floor(Math.random()*256)))
+            setGreen((Math.floor(Math.random()*256)))
+            setBlue((Math.floor(Math.random()*256)))
+        }
+        else {
+            setRed(oRed)
+            setGreen(oGreen)
+            setBlue(oBlue)
+        }
     }
 
-    useEffect(newColors, [oRed])
+    useEffect(newColors, [oRed, oGreen, oBlue, oRandom])
 
     useEffect(()=>{
         setPalette(selectedPalette)

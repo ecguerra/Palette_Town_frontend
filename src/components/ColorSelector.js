@@ -4,16 +4,12 @@ import { getUserPalettes, getOnePalette, createPalette } from '../services/palet
 import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
 
-import { nanoid } from 'nanoid'
-
 import Color from './Color'
-import Refresh from './Refresh'
 import '../css/Color.css'
 import '../css/ColorSelector.css'
 
 const ColorSelector = () => {
     const form = useRef()
-    // let update = useRef(true)
 
     const [currentUser, setCurrentUser] = useState(undefined)
     const [palettes, setPalettes] = useState(undefined)
@@ -21,11 +17,38 @@ const ColorSelector = () => {
     let [paletteDetails, setPaletteDetails] = useState(undefined)
     const [newPalette, setNewPalette] = useState('')
 
-    let [red, setRed] = useState(undefined)
-    let [green, setGreen] = useState(undefined)
-    let [blue, setBlue] = useState(undefined)
+    // let [red, setRed] = useState(undefined)
+    // let [green, setGreen] = useState(undefined)
+    // let [blue, setBlue] = useState(undefined)
     
-    let [update, setUpdate] = useState(true)
+    let [red, setRed] = useState({
+        one: Math.floor(Math.random()*256),
+        two: Math.floor(Math.random()*256),
+        three: Math.floor(Math.random()*256),
+        four: Math.floor(Math.random()*256),
+        five: Math.floor(Math.random()*256),
+        six: Math.floor(Math.random()*256)
+    })
+
+    let [green, setGreen] = useState({
+        one: Math.floor(Math.random()*256),
+        two: Math.floor(Math.random()*256),
+        three: Math.floor(Math.random()*256),
+        four: Math.floor(Math.random()*256),
+        five: Math.floor(Math.random()*256),
+        six: Math.floor(Math.random()*256)
+    })
+
+    let [blue, setBlue] = useState({
+        one: Math.floor(Math.random()*256),
+        two: Math.floor(Math.random()*256),
+        three: Math.floor(Math.random()*256),
+        four: Math.floor(Math.random()*256),
+        five: Math.floor(Math.random()*256),
+        six: Math.floor(Math.random()*256)
+    })
+
+    let [random, setRandom] = useState(true)
 
 
     const onChangePalette = e => {
@@ -33,10 +56,38 @@ const ColorSelector = () => {
     }
 
     const submitRandom = () => {
-        setRed(Math.floor(Math.random()*256))
-        setGreen(Math.floor(Math.random()*256))
-        setBlue(Math.floor(Math.random()*256))
-        // setUpdate(!update)
+        // setRed(Math.floor(Math.random()*256))
+        // setGreen(Math.floor(Math.random()*256))
+        // setBlue(Math.floor(Math.random()*256))
+
+        setRed({
+            one: Math.floor(Math.random()*256),
+            two: Math.floor(Math.random()*256),
+            three: Math.floor(Math.random()*256),
+            four: Math.floor(Math.random()*256),
+            five: Math.floor(Math.random()*256),
+            six: Math.floor(Math.random()*256)
+        })
+
+        setGreen({
+            one: Math.floor(Math.random()*256),
+            two: Math.floor(Math.random()*256),
+            three: Math.floor(Math.random()*256),
+            four: Math.floor(Math.random()*256),
+            five: Math.floor(Math.random()*256),
+            six: Math.floor(Math.random()*256)
+        })
+
+        setBlue({
+            one: Math.floor(Math.random()*256),
+            two: Math.floor(Math.random()*256),
+            three: Math.floor(Math.random()*256),
+            four: Math.floor(Math.random()*256),
+            five: Math.floor(Math.random()*256),
+            six: Math.floor(Math.random()*256)
+        })
+
+        setRandom(true)
     }
     
     const onChangeName = e => {
@@ -130,39 +181,45 @@ const ColorSelector = () => {
                 <div className='color-container'>
                     <Color 
                         selectedPalette={selectedPalette}
-                        oRed={red}
-                        oGreen={green}
-                        oBlue={blue}
+                        oRed={red.one}
+                        oGreen={green.one}
+                        oBlue={blue.one}
+                        oRandom = {random}
                     />
                     <Color 
                         selectedPalette={selectedPalette}
-                        oRed={red}
-                        oGreen={green}
-                        oBlue={blue}
+                        oRed={red.two}
+                        oGreen={green.two}
+                        oBlue={blue.two}
+                        oRandom = {random}
                     />
                     <Color 
                         selectedPalette={selectedPalette}
-                        oRed={red}
-                        oGreen={green}
-                        oBlue={blue} 
+                        oRed={red.three}
+                        oGreen={green.three}
+                        oBlue={blue.three}
+                        oRandom = {random} 
                     />
                     <Color 
                         selectedPalette={selectedPalette}
-                        oRed={red}
-                        oGreen={green}
-                        oBlue={blue} 
+                        oRed={red.four}
+                        oGreen={green.four}
+                        oBlue={blue.four}
+                        oRandom = {random} 
                     />
                     <Color 
                         selectedPalette={selectedPalette}
-                        oRed={red}
-                        oGreen={green}
-                        oBlue={blue} 
+                        oRed={red.five}
+                        oGreen={green.five}
+                        oBlue={blue.five}
+                        oRandom = {random} 
                     />
                     <Color 
                         selectedPalette={selectedPalette}
-                        oRed={red}
-                        oGreen={green}
-                        oBlue={blue} 
+                        oRed={red.six}
+                        oGreen={green.six}
+                        oBlue={blue.six}
+                        oRandom = {random} 
                     />
                 </div>
             </div>
